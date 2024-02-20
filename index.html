@@ -110,15 +110,18 @@
         const botMessage = data.response;
         console.log(botMessage)
         // Your provided JavaScript code
-        chatHistory.innerHTML += `<div class="user-message">${escapeHTML(userMessage)}</div>`;
-        chatHistory.innerHTML += `<div class="bot-message">${escapeHTML(botMessage)}</div>`;
+        chatHistory.innerHTML += `<div class="user-message">${escapeAndReplaceNewLines(userMessage)}</div>`;
+        chatHistory.innerHTML += `<div class="bot-message">${escapeAndReplaceNewLines(botMessage)}</div>`;
 
-        function escapeHTML(html) {
+        function escapeAndReplaceNewLines(message) {
           // Replace newline characters with <br> tags
-          html = html.replace(/\n/g, "<br>");
-          
+          let htmlWithBreaks = message.replace(/\n/g, "<br>");
+
+          // Replace **...** with <strong>...</strong>
+          htmlWithBreaks = htmlWithBreaks.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
           const div = document.createElement('div');
-          div.innerHTML = html;
+          div.innerHTML = htmlWithBreaks;
           return div.innerHTML;
         }
 
