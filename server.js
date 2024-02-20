@@ -74,3 +74,5 @@ app.post('/chat', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+module.exports = app;
