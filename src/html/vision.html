@@ -15,6 +15,7 @@
         /* Make the container take up full height and width */
         .container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh; /* 100% of viewport height */
@@ -22,6 +23,7 @@
         }
         .container form {
             display: flex;
+            margin-bottom: 32px;
             flex-direction: column;
             align-items: center; /* Center form elements horizontally */
         }
@@ -30,16 +32,32 @@
             margin-top: 20px; /* Adjust as needed */
         }
 
+        .responseContainer {
+            max-width: 75%;
+        }
+
+        .load {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
     </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="image">
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <input id="imageInput" type="file" name="image">
             <div>
                 <button type="submit">Kirim</button>
             </div>
         </form>
+        <p>Hasil : </p>
+        <div class="responseContainer" id="responseContainer"></div>
     </div>
+    <script src="../js/ajax-vision.js">
+    </script>
 </body>
 </html>
