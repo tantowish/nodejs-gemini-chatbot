@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Vision</title>
+    <style>
+        /* Ensure HTML and Body take up full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Make the container take up full height and width */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 100% of viewport height */
+            width: 100vw; /* 100% of viewport width */
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center form elements horizontally */
+        }
+
+        .container form div {
+            margin-top: 20px; /* Adjust as needed */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="image">
+            <div>
+                <button type="submit">Kirim</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
