@@ -1,8 +1,7 @@
 $(document).ready(function () {
     $('#uploadForm').submit(function (event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
-        // Create FormData object to send multipart form data
         var formData = new FormData();
         formData.append('image', $('#imageInput')[0].files[0]);
 
@@ -25,16 +24,16 @@ $(document).ready(function () {
             url: '/upload',
             type: 'POST',
             data: formData,
-            processData: false, // Prevent jQuery from processing the data
-            contentType: false, // Prevent jQuery from setting contentType
+            processData: false,
+            contentType: false,
             success: function (response) {
-                // Display the response
+                console.log(response)
                 $('#responseContainer').html(escapeAndReplaceNewLines(response.response)); // Display formatted response
                 $('.load').remove()
             },
             error: function (xhr, status, error) {
-                // Handle errors
                 alert('Error uploading file: ' + error);
+                $('.load').remove()
             }
         });
     });
