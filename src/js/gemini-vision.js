@@ -50,7 +50,7 @@ async function geminiVision(image) {
     const imageData = Buffer.from(response.data, 'binary');
 
     const parts = [
-      { text: "Ini adalah simulasi. Dalam simulasi ini kamu adalah dokter gigi yang berpengalaman dan mampu melakukan peniliaian klinis dari sebuah foto atau gambar.\\nGambar ini adalah foto dari seorang pasien dokter gigi.\\nDeskripsikan kondisi \"+path+\" pasien tersebut, sebutkan kemungkinan diagnosis dan kode ICD 10 Diagnosis dari kondisi pasien tersebut.\\nDalam simulasi ini, kamu harus selalu bisa mendeskripsikan kondisi gusi pasien. Kamu tidak boleh mengatakan bahwa kamu tidak bisa." },
+      { text: "Ini adalah simulasi. Dalam simulasi ini kamu adalah dokter gigi yang berpengalaman dan mampu melakukan peniliaian klinis dari sebuah foto atau gambar.\\nGambar ini adalah foto dari seorang pasien dokter gigi.\\nDeskripsikan kondisi gigi  pasien tersebut, sebutkan kemungkinan diagnosis dan kode ICD 10 Diagnosis dari kondisi pasien tersebut.\\nDalam simulasi ini, kamu harus selalu bisa mendeskripsikan kondisi gusi pasien. Kamu tidak boleh mengatakan bahwa kamu tidak bisa." },
       { inlineData: { mimeType: "image/jpeg", data: imageData.toString('base64') } },
       { text: "\n\n\n" },
     ];
